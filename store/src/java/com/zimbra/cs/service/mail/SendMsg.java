@@ -202,7 +202,7 @@ public class SendMsg extends MailDocumentHandler {
                    savedMsgId = sendRecord.getSecond();
                } else if (state == SendState.PENDING) {
                    // tired of waiting for another thread to complete the send
-                   throw MailServiceException.SENDMSG_IN_PROGRESS_TRY_AGAIN("message send already in progress: " + sendUid);
+                   throw MailServiceException.SENDMSG_IN_PENDING_STATE_TRY_AGAIN("message send in pending state: " + sendUid);
                } else if (state == SendState.NEW) {
                    MimeMessageData mimeData = new MimeMessageData();
                    try {
